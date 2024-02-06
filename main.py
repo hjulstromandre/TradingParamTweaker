@@ -6,7 +6,7 @@ import statistics
 
 tickerSymbol = 'AAPL'
 tickerData = yf.Ticker(tickerSymbol)
-df = tickerData.history(period='1d', start='2013-01-01', end='2023-12-31')
+df = tickerData.history(period='1d', start='2020-01-01', end='2023-12-31')
 print(df['Close'])
 df = df.reset_index()
 
@@ -31,7 +31,7 @@ fig.add_trace(go.Scatter(x=df['Date'], y=df['Moving average'], mode='lines', nam
 fig.add_trace(go.Scatter(x=df['Date'], y=df['Upper band'], mode='lines', name='Upper band'))
 fig.add_trace(go.Scatter(x=df['Date'], y=df['Lower band'], mode='lines', name='Lower band'))
 fig.write_html("stock_plot.html")
-#fig.show()
+fig.show()
 
 bank = 10000
 startbank = bank
